@@ -1,0 +1,5 @@
+alter table ITEMS 
+  alter column partDescr set data type varChar(255) 
+  alter column wholesale set data type numeric(7, 2) 
+  alter column retail set data type numeric(8, 2)
+  ;

@@ -1,0 +1,11 @@
+drop table ITEMS;
+
+create table ITEMS (
+  partNo int not null,
+  vendorNo int not null,
+  partDescr char(20),
+  wholesale numeric(6,2),
+  retail numeric(7,2),
+
+  primary key(partNo,vendorNo)
+);  
