@@ -124,6 +124,9 @@
          vendorNo like(gItemsIO.vendorNo) const ;
        End-pr ;
 
+      // This compiler directive hides these procedures from calling programs.
+      //   This forces you to use the newer procedures when you re-compile
+      //   the caller.  
       /if not defined(MAIN)
        // --------------------------------------------------
        // Prototype for procedure: GetItemsPartDescr
@@ -516,6 +519,8 @@
 
          Dcl-s retField zoned(6:2) ;
 
+       // This can throw an overflow exception since ItemsDs.wholesale is larger
+       //   than retField.  You may want to take steps to handle this.
        retField = ItemsDs.wholesale;
        Return retField;
        End-proc ;
@@ -551,6 +556,8 @@
 
          Dcl-s retField zoned(7:2) ;
 
+       // This can throw an overflow exception since ItemsDs.retail is larger
+       //   than retField.  You may want to take steps to handle this.
        retField = ItemsDs.retail;
        Return retField;
        End-proc ;
